@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sophia Blair — Multidimensional Media Creative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #F5F0EA;
+      --ink: #2E1F4A;
+      --accent: #C4622A;
+      --lavender: #9B8DC4;
+      --lavender-light: #EDE6F5;
+      --olive: #7A8A3A;
+      --olive-light: #E8EDD6;
+      --muted: #7A6E8A;
+      --pale: #F0EBF8;
+    }
+
+    body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 3rem;
+      background: rgba(245,240,234,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid rgba(155,141,196,0.25);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 0.06em; color: var(--ink); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    section { padding: 6rem 3rem; }
+
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding-top: 8rem; gap: 4rem; }
+    .hero-text { max-width: 520px; }
+    .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--olive); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 0.5px; background: var(--olive); }
+    .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 1.0; font-weight: 400; margin-bottom: 1.5rem; letter-spacing: -0.02em; color: var(--ink); }
+    .hero-name em { font-style: italic; color: var(--lavender); }
+    .hero-desc { font-size: 1rem; line-height: 1.8; color: var(--muted); font-weight: 300; max-width: 380px; margin-bottom: 2.5rem; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 0.25rem; transition: gap 0.3s, color 0.2s, border-color 0.2s; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; }
+    .hero-cta:hover { gap: 1.25rem; color: var(--accent); border-color: var(--accent); }
+
+    .hero-visual { position: relative; height: 600px; display: flex; align-items: center; justify-content: center; }
+    .hero-shape { position: absolute; width: 420px; height: 520px; background: var(--lavender-light); border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%; animation: morph 8s ease-in-out infinite; }
+    @keyframes morph { 0%, 100% { border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%; } 33% { border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%; } 66% { border-radius: 50% 50% 70% 30% / 30% 70% 50% 50%; } }
+    .hero-initials { position: relative; z-index: 2; font-family: 'Playfair Display', serif; font-size: 9rem; font-weight: 700; color: var(--lavender); line-height: 1; letter-spacing: -0.04em; user-select: none; opacity: 0.35; }
+    .hero-tag { position: absolute; color: var(--bg); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1rem; border-radius: 3px; }
+    .hero-tag-1 { top: 80px; right: 20px; transform: rotate(3deg); background: var(--ink); }
+    .hero-tag-2 { bottom: 100px; left: 10px; transform: rotate(-2deg); background: var(--olive); }
+    .hero-tag-3 { top: 50%; right: -10px; transform: rotate(1.5deg); background: var(--accent); }
+
+    .roles-strip { padding: 2rem 0; overflow: hidden; border-top: 0.5px solid rgba(155,141,196,0.3); border-bottom: 0.5px solid rgba(155,141,196,0.3); }
+    .roles-ticker { display: flex; gap: 3rem; animation: ticker 25s linear infinite; white-space: nowrap; width: max-content; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .roles-ticker span { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: var(--muted); flex-shrink: 0; }
+    .roles-ticker .dot { color: var(--accent); font-style: normal; }
+
+    .about { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; }
+    .about-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lavender); writing-mode: vertical-rl; transform: rotate(180deg); height: fit-content; margin-top: 0.5rem; }
+    .about-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 400; line-height: 1.3; margin-bottom: 2rem; color: var(--ink); }
+    .about-headline em { font-style: italic; color: var(--accent); }
+    .about-body { font-size: 1rem; line-height: 1.9; color: var(--muted); font-weight: 300; max-width: 580px; }
+
+    .skills-header { margin-bottom: 3rem; }
+    .skills-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; color: var(--ink); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: rgba(155,141,196,0.2); border: 0.5px solid rgba(155,141,196,0.2); }
+    .skill-cell { background: var(--bg); padding: 2rem 1.5rem; transition: background 0.3s; cursor: default; }
+    .skill-cell:hover { background: var(--pale); }
+    .skill-icon { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent); }
+    .skill-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--ink); }
+    .skill-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+    .projects-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3rem; }
+    .projects-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; color: var(--ink); }
+    .projects-header span { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.08em; }
+    .projects-list { display: flex; flex-direction: column; }
+    .project-item { display: grid; grid-template-columns: 3rem 1fr auto; gap: 2rem; align-items: center; padding: 2rem 0; border-bottom: 0.5px solid rgba(155,141,196,0.25); cursor: default; }
+    .project-num { font-family: 'Playfair Display', serif; font-size: 0.85rem; font-style: italic; color: var(--lavender); transition: color 0.2s; }
+    .project-item:hover .project-num { color: var(--accent); }
+    .project-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 0.4rem; color: var(--ink); transition: color 0.2s; }
+    .project-item:hover .project-title { color: var(--accent); }
+    .project-meta { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .project-tag { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 0.9rem; border-radius: 3px; border: none; }
+    .tag-film { background: var(--lavender-light); color: #4A3570; }
+    .tag-editorial { background: var(--olive-light); color: #3A4A1A; }
+    .tag-music { background: #FAE8DF; color: #7A2E0A; }
+    .tag-social { background: #F5F0E0; color: #4A4010; }
+    .tag-fashion { background: var(--pale); color: #3C2E5C; }
+
+    .contact { background: var(--ink); color: var(--bg); text-align: center; padding: 8rem 3rem; }
+    .contact-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lavender); margin-bottom: 1.5rem; }
+    .contact-headline { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 400; line-height: 1.1; margin-bottom: 2rem; }
+    .contact-headline em { font-style: italic; color: var(--accent); }
+    .contact-sub { font-size: 1rem; color: rgba(245,240,234,0.5); font-weight: 300; margin-bottom: 3rem; }
+    .contact-links { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+    .contact-link { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bg); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; border-bottom: 0.5px solid rgba(245,240,234,0.3); padding-bottom: 0.25rem; transition: color 0.2s, border-color 0.2s; }
+    .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    footer { background: var(--ink); border-top: 0.5px solid rgba(245,240,234,0.1); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+    footer span { font-size: 0.78rem; color: rgba(245,240,234,0.3); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s forwards; }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.25s; } .delay-3 { animation-delay: 0.4s; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; } .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 3rem; min-height: auto; }
+      .hero-visual { height: 320px; } .hero-shape { width: 260px; height: 320px; } .hero-initials { font-size: 5.5rem; }
+      section { padding: 4rem 1.5rem; } .about { grid-template-columns: 1fr; gap: 2rem; }
+      .about-label { writing-mode: horizontal-tb; transform: none; }
+      .projects-header { flex-direction: column; gap: 0.5rem; }
+      .project-item { grid-template-columns: 2.5rem 1fr; } .project-tag { display: none; }
+      .contact { padding: 5rem 1.5rem; } .contact-links { gap: 1.5rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Sophia Blair</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow fade-in">Multidimensional Media Creative</div>
+    <h1 class="hero-name fade-in delay-1">Sophia<br><em>Blair</em></h1>
+    <p class="hero-desc fade-in delay-2">Writer. Actor. Director. Producer. Model. Interviewer. Content creator. Spanning editorial, film, social media, music, and fashion — genre-defying by design.</p>
+    <button class="hero-cta fade-in delay-3" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View my work →</button>
+  </div>
+  <div class="hero-visual fade-in delay-2">
+    <div class="hero-shape"></div>
+    <div class="hero-initials">SB</div>
+    <div class="hero-tag hero-tag-1">Film & Editorial</div>
+    <div class="hero-tag hero-tag-2">Fashion & Music</div>
+    <div class="hero-tag hero-tag-3">Social Media</div>
+  </div>
+</section>
+
+<div class="roles-strip">
+  <div class="roles-ticker">
+    <span>Writer</span><span class="dot">·</span><span>Actor</span><span class="dot">·</span><span>Director</span><span class="dot">·</span><span>Producer</span><span class="dot">·</span><span>Model</span><span class="dot">·</span><span>Interviewer</span><span class="dot">·</span><span>Content Creator</span><span class="dot">·</span><span>Storyteller</span><span class="dot">·</span>
+    <span>Writer</span><span class="dot">·</span><span>Actor</span><span class="dot">·</span><span>Director</span><span class="dot">·</span><span>Producer</span><span class="dot">·</span><span>Model</span><span class="dot">·</span><span>Interviewer</span><span class="dot">·</span><span>Content Creator</span><span class="dot">·</span><span>Storyteller</span><span class="dot">·</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="about">
+    <div class="about-label">About</div>
+    <div class="about-content">
+      <h2 class="about-headline">One person,<br>many <em>worlds.</em></h2>
+      <p class="about-body">Sophia Blair is a multidimensional media creative who refuses to be put in a box — and that's exactly the point. Her work lives at the intersection of storytelling, visual culture, and human connection. From the pages of editorial shoots to the emotional depths of a scene, from the intimacy of an interview to the energy of a music set — Sophia brings a singular perspective to everything she touches.<br><br>Based at the crossroads of film, fashion, social media, and music, she is as comfortable in front of a camera as behind it, as fluent in long-form narrative as she is in the language of the scroll.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="padding-top: 0;">
+  <div class="skills-header"><h2>What I do</h2></div>
+  <div class="skills-grid">
+    <div class="skill-cell"><div class="skill-icon"><i class="ti ti-pencil"></i></div><div class="skill-name">Writing</div><div class="skill-desc">Editorial, scripts, creative nonfiction, and narrative content across formats.</div></div>
+    <div class="skill-cell"><div class="skill-icon"><i class="ti ti-masks-theater"></i></div><div class="skill-name">Acting</div><div class="skill-desc">Film, television, and digital media — bringing characters to life on screen.</div></div>
+    <div class="skill-cell"><div class="skill-icon"><i class="ti ti-movie"></i></div><div class="skill-name">Directing</div><div class="skill-desc">Visual storytelling with a distinct eye for atmosphere and emotion.</div></div>
+    <div class="skill-cell"><div class="skill-icon"><i class="ti ti-clapperboard"></i></div><div class="skill-name">Producing</div><div class="skill-desc">From concept to delivery — shepherding creative projects across every stage.</div></div>
+    <div class="skill-cell"><div class="skill-icon"><i class="ti ti-camera"></i></div><div class="skill-name">Modelling</div><div class="skill-desc">Editorial, fashion, and commercial — expressive presence in front of the lens.</div></div>
+    <div class="skill-cell"><div class="skill-icon"><i class="ti ti-microphone"></i></div><div class="skill-name">Interviewing</div><div class="skill-desc">Thoughtful conversations that draw out depth, truth, and connection.</div></div>
+    <div class="skill-cell"><div class="skill-icon"><i class="ti ti-brand-instagram"></i></div><div class="skill-name">Content creation</div><div class="skill-desc">Social media, short-form video, and digital storytelling that resonates.</div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="projects-header">
+    <h2>Selected work</h2>
+    <span>Placeholder projects — update with your own</span>
+  </div>
+  <div class="projects-list">
+    <div class="project-item"><span class="project-num">01</span><div class="project-info"><div class="project-title">Untitled Short Film</div><div class="project-meta">Director &amp; Writer · 2024</div></div><span class="project-tag tag-film">Film</span></div>
+    <div class="project-item"><span class="project-num">02</span><div class="project-info"><div class="project-title">Editorial Feature</div><div class="project-meta">Model &amp; Subject · 2024</div></div><span class="project-tag tag-editorial">Editorial</span></div>
+    <div class="project-item"><span class="project-num">03</span><div class="project-info"><div class="project-title">Music Video Production</div><div class="project-meta">Producer &amp; Director · 2023</div></div><span class="project-tag tag-music">Music</span></div>
+    <div class="project-item"><span class="project-num">04</span><div class="project-info"><div class="project-title">Interview Series — Season 1</div><div class="project-meta">Creator &amp; Host · 2023</div></div><span class="project-tag tag-social">Social Media</span></div>
+    <div class="project-item"><span class="project-num">05</span><div class="project-info"><div class="project-title">Fashion Campaign</div><div class="project-meta">Model &amp; Creative Consultant · 2023</div></div><span class="project-tag tag-fashion">Fashion</span></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-eyebrow">Let's connect</div>
+  <h2 class="contact-headline">Ready to create<br>something <em>unforgettable?</em></h2>
+  <p class="contact-sub">Open to collaborations across film, fashion, editorial, music, and beyond.</p>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:sophia@example.com"><i class="ti ti-mail"></i> Email</a>
+    <a class="contact-link" href="#"><i class="ti ti-brand-instagram"></i> Instagram</a>
+    <a class="contact-link" href="#"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Sophia Blair</span>
+  <span>Multidimensional Media Creative</span>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
